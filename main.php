@@ -27,7 +27,10 @@ $track5 = new Music('track5', 'Эмбиент', 2);
 $track6 = new Music('track6', 'Хард-рок', 2);
 $track7 = new Music('track7', 'Фолк-рок', 2);
 $track8 = new Music('track8', 'Рок', 2);
-$trackList = [$track1, $track2, $track3, $track4, $track5, $track6, $track7, $track8];
+$track9 = new Music('track9', 'Поп', 2);
+$track10 = new Music('track10', 'Панк-рок', 2);
+$track11 = new Music('track11', 'Классическая музыка', 2);
+$trackList = [$track1, $track2, $track3, $track4, $track5, $track6, $track7, $track8, $track9, $track10, $track11];
 foreach ($trackList as $track) {
 	$dancefloorr->addMusic($track);
 }
@@ -51,7 +54,7 @@ $clubController = new clubController(
 $clubOpen = true;
 while ($clubOpen) {
 	$duration = $clubController->updateClub();
-	if ($duration) {
+	if (gettype($duration) === 'integer') {
 		sleep($duration);
 	} else {
 		$clubOpen = false;
